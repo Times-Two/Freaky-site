@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.button-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+.approve-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.approve-button:hover {
+    background-color: #218838;
+}
+
+h2 {
+    color: #333;
+    margin-top: 30px;
+}
+
+#orderSummary {
+    background: white;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+#orderSummary p {
+    font-size: 16px;
+    color: #555;
+}
+
+#orderSummary h3 {
+    color: #333;
+    margin-top: 15px;
+}
+
+#orderSummary ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#orderSummary li {
+    background: #f9f9f9;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    width: 200px;
+    padding: 12px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#proceedToPayment {
+    background-color: #007bff;
+    color: white;
+}
+
+#proceedToPayment:hover {
+    background-color: #0056b3;
+}
+
+#cancelOrder {
+    background-color: #dc3545;
+    color: white;
+}
+
+#cancelOrder:hover {
+    background-color: #b52b3a;
+}
