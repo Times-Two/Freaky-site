@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayStack Payment Integration</title>
+    <link rel="stylesheet" href="mono.css">
+</head>
+<body>
+    <div class="payment-form">
+        <h2>Make Payment</h2>
+        <form id="paymentForm">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" required />
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" required readonly />
+            </div>
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" />
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" />
+            </div>
+            <button type="submit" onclick="payWithPaystack(event)">Pay Now</button>
+        </form>
+        <div id="message" class="message" style="display: none;"></div>
+    </div>
+
+    <footer>
+        <div class="vi"><p>Copyright &copy; 2024 | Powered by <strong>BTECH LEVEL 100 GROUP 12</strong></p></div>
+    </footer>
+
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script>
+        const paymentForm = document.getElementById('paymentForm');
+        const messageDiv = document.getElementById('message');
+        const amountInput = document.getElementById('amount');
+
+        // Get the booking total from localStorage when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+    const amountInput = document.getElementById('amount');
+    const storedTotal = localStorage.getItem('cartTotal');
+
+    // Debugging: Check if total is being retrieved
+    console.log("Retrieved total from localStorage:", storedTotal);
+
+    if (storedTotal) {
+        amountInput.value = parseFloat(storedTotal).toFixed(2);
+    } else {
+        console.error("Cart total is missing!");
+        amountInput.value = "0.00"; // Default if no total is stored
+    }
+});
+
+
+        // Your PayStack public key
+        const publicKey = 'pk_live_f2a29821ab0883d7ad01d0d29a9b91955088b70f';
+
+        function payWithPaystack(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const amount = document.getElementById('amount').value;
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+
+            if (!email || !amount) {
+                showMessage('Please fill in all required fields', 'error');
+                return;
+            }
+
+            const handler = PaystackPop.setup({
+                key: publicKey,
+                email: email,
+                amount: amount * 100, // Convert to pesewas
+                currency: 'GHS',
+                ref: 'REF' + Math.floor((Math.random() * 1000000000) + 1),
+                firstname: firstName,
+                lastname: lastName,
+                
+                callback: function(response) {
+                    showMessage('Payment complete! Reference: ' + response.reference, 'success');
+                    verifyPayment(response.reference);
+                    // Clear the cart total after successful payment
+                    localStorage.removeItem('cartTotal');
+                },
+                
+                onClose: function() {
+                    showMessage('Transaction was not completed', 'error');
+                }
+            });
+
+            handler.openIframe();
+        }
+
+        async function verifyPayment(reference) {
+            try {
+                const response = await fetch('/verify-payment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ reference })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showMessage('Payment verified successfully!', 'success');
+                    paymentForm.reset();
+                    // Redirect to success page or back to home
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 2000);
+                } else {
+                    showMessage('Payment verification failed.', 'error');
+                }
+            } catch (error) {
+                showMessage('Error verifying payment.', 'error');
+                console.error(error);
+            }
+        }
+
+       
+    </script>
+</body>
+</html>
+
+

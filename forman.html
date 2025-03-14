@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="forman.css">
+    <link rel="stylesheet" href="addtocart.css">
+</head>
+<body>
+    <header>
+        <div class="logo">FTL.COM</div>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="forman.html" class="active">For Mens</a></li>
+                <li><a href="forladies.html">For Ladies</a></li>
+                <li><a href="ContactUs.html">Contact us</a></li>
+                <li><a href=""onclick="alert('Logout successfully,'),window.open('indexin.html')">Sign Out</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <a href="profile.html"><div class="profile" id="profile"></div> </a>
+
+    <div class="shoes-cloth">
+        <div class="shoes">
+            <a href="shoes.html">Shoes</a></li>
+        </div>
+        <div class="cloth">
+            <a href="cloth.html">Cloth</a></li>
+        </div>
+    </div>
+    <section>
+        <div class="tim">XMAS Deals | 
+           You Can Get Up To 50% Off On Your First 5-10 Purchase On "Freaky Times Luxury"<br>
+        </div>
+    </section>
+    <div class="left">
+        <div class="slider">
+            <img src="images/mens/1 (40).jpg" alt="" class="slide">
+            <img src="images/mens/1 (17).jpg" alt="" class="slide">
+            <img src="images/mens/shoues/1 (38).jpg" alt="" class="slide">
+            <img src="images/mens/shoues/1 (15).jpg" alt="" class="slide">
+            <img src="images/mens/shoues/1 (11).jpg" alt="" class="slide">
+            <img src="images/mens/1 (36).jpg" alt="" class="slide">
+            <img src="images/mens/1 (47).jpg" alt="" class="slide">
+            <img src="images/mens/shoues/1 (18).jpg" alt="" class="slide">
+        </div>
+    </div>
+
+    <div class="times">
+        <div class="two">
+         ONLY FOR GENTS <br> <h4>"Hey, Beauty! <br><br>
+            Welcome to Freaky Times Luxury! We're passionate about providing the finest fabrics for all your creative needs. Start shoppping now!"</h4>
+        </div>
+    </div>
+
+    <div class="cart-icon" id="cartIcon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <span id="cartCount">0</span>
+    </div>
+        <!-- Cart Container -->
+    <div class="cart-container" id="cartContainer">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <div class="cart-close" id="cartClose">&times;</div>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be added here dynamically -->
+                <div class="empty-cart-message" id="emptyCartMessage">
+                    Your cart is empty
+                </div>
+            </div>
+            <div class="cart-total" id="cartTotal">
+                Total:  0
+            </div>
+            <div class="cart-actions">
+                <button class="btn-continue" id="continueShopping">Continue Shopping</button>
+                <button class="btn-checkout" id="checkout">Checkout</button>
+            </div>
+    </div>
+        
+    
+        <!-- Overlay -->
+        <div class="overlay" id="overlay"></div>
+
+
+    <div class="references">
+        <div class="select-countrys">
+            <img src="images/mens/1 (40).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (40).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/1 (42).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (42x).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/1 (12).jpg" width="200px" height="200px"> 
+             <p>2-in-1 Men's Short Sleeve Set with Smiley Printed T-shirt And Shorts Set - White</p>
+             <div class="price"> GH&#x20B5 120</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (12).jpg', '2-in-1 Mens Short Sleeve Set with Smiley  Printed T-shirt And Shorts Set - White', 120)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/1 (13).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (13).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/1 (14).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (14).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/1 (15).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (15).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/1 (16).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (16).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/1 (17).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (17).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/1 (18).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (18).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/1 (19).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (19).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/1 (20).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (20).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/1 (21).jpg" width="200px" height="200px"> 
+             <p>Fashion Shorts And T -Shirt Ste -2 Pieces -White </p>
+             <div class="price"> GH&#x20B5 120.00</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (21).jpg', 'Fashion Shorts And T -Shirt Ste -2 Pieces -White', 120.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/1 (23).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (23).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/1 (24).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (24).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/1 (25).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (25).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/1 (26).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (26).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/1 (40).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (40).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/1 (41).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (41).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/1 (42).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (42).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/1 (44).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (44).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/shoues/1 (10).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (10).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/shoues/1 (11).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (11).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/shoues/1 (12).jpg" width="200px" height="200px"> 
+             <p> Men's mesh hiking shoes</p>
+             <div class="price"> GH&#x20B5 135</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (12).jpg', 'Mens mesh hiking shoes', 135)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/shoues/1 (13).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (13).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/shoues/1 (14).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (14).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/shoues/1 (15).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (15).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/shoues/1 (16).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (16).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/shoues/1 (17).jpg" width="200px" height="200px"> 
+             <p>Low- Tolace Athletic Sneaker - Black </p>
+             <div class="price"> GH&#x20B5 75.32</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (17).jpg', 'Low- Tolace Athletic Sneaker - Black', 75.32)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/shoues/1 (18).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (18).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/shoues/1 (19).jpg" width="200px" height="200px"> 
+             <p> Men's Shoes Casual Breathable lace Up Low Top Sneakers - Black</p>
+             <div class="price"> GH&#x20B5 120.00</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (19).jpg', ' Men Shoes Casual Breathable lace Up Low Top Sneakers - Black', 120.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/shoues/1 (38).jpg" width="200px" height="200px"> 
+             <p> Men's Casual shoes Sneakers</p>
+             <div class="price"> GH&#x20B5 75.99</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (38).jpg', 'Mens Casual shoes Sneakers', 75.99)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/shoues/1 (23).jpg" width="200px" height="200px"> 
+             <p> Casual shoes Sneakers Sports Shoes</p>
+             <div class="price"> GH&#x20B5 100.00</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (23).jpg', ' Casual shoes Sneakers Sports Shoes', 100.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/shoues/1 (22).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (22).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/shoues/1 (21).jpg" width="200px" height="200px"> 
+             <p> </p>
+             <div class="price"> GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (21).jpg', 'Original 4yards Plain F GHabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <img src="images/mens/shoues/1 (2).jpg" width="200px" height="200px"> 
+             <p> Men's Casual Open PU Leather Boatou Soft Sole Sandals Official Black</p>
+             <div class="price"> GH&#x20B5 175.00</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (2).jpg', ' Mens Casual Open PU Leather Boatou Soft Sole Sandals Official Black', 175.00)">Add to Cart</button>
+         </div>
+    </div>
+
+    <footer>
+        <div class="x">
+          <div class="I">
+            <p><strong>FREAKYTIMES</strong>LUXURY</p>
+          </div>
+
+          <div class="ii">
+            <p><strong>company</strong></p><br>
+            <p>Blog</p><br>
+            <p>Privacy Policy</p><br>
+            <p>FAQ'S</p><br>
+            <p><a href="ContactUs.html">Contact Us</a></p>
+          </div>
+
+          <div class="iii">
+             <p><strong>Contact Us</strong></p><br> 
+             <p>twotimes678@gmail.com</p><br>
+             <p>Takoradi, Axim "GHANA"</p><br>
+             <p><a href="https://wa.me/+233530728551?text">Call or WhatsApp</a></p>
+          </div>
+
+          <div class="iv">
+            <p><strong>Quick Link</strong></p><br>
+            <p><a href="index.html">Home</a></p><br>
+            <p><a href="forman.html">For Mens</a></p><br>
+            <p><a href="forladies.html">For Ladies</a></p><br>
+            <p><a href="ContactUs.html">Contact Us</a></p>
+          </div>
+
+          <div class="vv">
+            <p><strong>Social Share</strong></p><br>
+            <p><a href="https://wa.me/+233530728551?text">WhatsApp</a></p><br>
+            <p>Facebook</p><br>
+            <p>Instagram</p><br>
+            <p>LinkedIn</p>
+          </div>
+        </div>
+
+        <div class="vi"><p>Copyright &copy; 2024 | Powered by <strong>TIMES TWO</strong></p></div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script src="addtocart.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="Content Us.css">
+</head>
+<body>
+    <header>
+        <div class="logo">FTL.COM</div>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="nav-bar">
+            <ul>
+              <li><a href="indexin.html">Home</a></li>
+              <li><a href="formanin.html">For Mens</a></li>
+              <li><a href="forladiesin.html">For Ladies</a></li>
+              <li><a href="ContactUsin.html" class="active">Contact us</a></li>
+              <li><a href="createAccount.html">Sign UP</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+    <form onsubmit="return validateForm(event)">
+      <input type="text" id="name" placeholder="Name*" required><br>
+      <input type="email" id="email" placeholder="Email*" required><br>
+      <input type="text" id="contact" placeholder="Contact*" required><br>
+      <label for=""><textarea id="message" name="message" placeholder="Enter your Message"></textarea></label><br>
+      <button type="submit">SEND MESSAGE</button>
+  </form>
+
+    <footer>
+      <div class="x">
+        <div class="I">
+          <p><strong>FREAKYTIMES</strong>LUXURY</p>
+        </div>
+
+        <div class="ii">
+          <p><strong>company</strong></p><br>
+          <p>Blog</p><br>
+          <p>Privacy Policy</p><br>
+          <p>FAQ'S</p><br>
+          <p><a href="ContactUsin.html">Contact Us</a></p>
+        </div>
+
+        <div class="iii">
+           <p><strong>Contact Us</strong></p><br> 
+           <p>twotimes678@gmail.com</p><br>
+           <p>Takoradi, Axim "GHANA"</p><br>
+           <p><a href=""onclick="alert('Login before you can WhatsApp us,'),window.open('createAccount.html')">WhatsApp</a>/p>
+        </div>
+
+        <div class="iv">
+          <p><strong>Quick Link</strong></p><br>
+          <p><a href="indexin.html">Home</a></p><br>
+          <p><a href="formanin.html">For Mens</a></p><br>
+          <p><a href="forladiesin.html">For Ladies</a></p><br>
+          <p><a href="ContactUsin.html">Contact Us</a></p>
+        </div>
+
+        <div class="vv">
+          <p><strong>Social Share</strong></p><br>
+          <p><a href=""onclick="alert('Login before you can WhatsApp us,'),window.open('createAccount.html')">WhatsApp</a></p><br>
+          <p>Facebook</p><br>
+          <p>Instagram</p><br>
+          <p>LinkedIn</p>
+        </div>
+      </div>
+
+      <div class="vi"><p>Copyright &copy; 2024 | Powered by <strong>TIMES TWO</strong></p></div>
+  </footer>
+
+
+    <script src="script.js"></script>
+    <script>
+        function validateForm(event) {
+        event.preventDefault(); // Prevent form submission
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let contact = document.getElementById("contact").value.trim();
+        let message = document.getElementById("message").value.trim();
+    
+        if (name === "" || email === "" || contact === "" || message === "") {
+            alert("Please fill in all fields before sending the message.");
+            return false;
+        } else {
+            alert("Login before you can send a message.");
+            window.open("createAccount.html");
+        }
+    }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,95 @@
+.ob{
+    text-align: center;    
+    }
+    form{
+        margin: 50px 400px;
+        border: 2px solid rgb(11, 1, 1);
+        width: 40%;
+        padding: 20px 40px;
+        text-align: center;
+        border-radius: 10px;
+    }
+    input,textarea{
+        width: 90%;
+        margin: 10px 10px;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    button{
+        padding: 20px ;
+        margin: 10px 10px;
+        width: 575px;
+        color: white;
+        background-color: blue;
+        border-radius: 10px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: #007bff;
+    }
+    .container {
+        max-width: 400px;
+        margin: 50px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .error {
+    color: red;
+    font-size: 14px;
+    }
+    /* .profile {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        background-color: #007bff;
+        color: white;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-weight: bold;
+        font-size: 18px;
+    } */
+    @media screen and (max-width:600px){
+            form{
+                margin: 50px 40px;
+                border: 2px solid rgb(11, 1, 1);
+                width: 57%;
+                padding: 20px 40px;
+                text-align: center;
+                border-radius: 10px;
+            }
+         
+            button{
+                padding: 20px ;
+                margin: 10px 10px;
+                width: 200px;
+                color: white;
+                background-color: blue;
+                border-radius: 10px;
+                font-size: 1rem;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            
+    }
+
+    
+        

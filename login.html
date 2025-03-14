@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OB</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <!-- <div class="ob"><img src="20240805_173355.jpg" width="150px" height="150px"alt=""></div> -->
+    <h1>Sign In</h1>
+
+    <form id="loginForm">
+        <label for="email"></label>
+        <input type="contact" id="contact" placeholder="Enter Phone Number or Email" required>
+        <span class="error" id="contactError"></span>
+        
+        <label for="password"></label>
+        <input type="password" id="password" placeholder="Enter password" required minlength="6">
+        <span class="error" id="passwordError"></span>
+       
+        <button type="submit" class="btn">Login</button>
+
+        <div class="mans">
+        <div class="man"><label for=""><input type="checkbox"></label></div>
+        <p>Remember Me</p>
+       </div>
+
+
+    
+       
+       <div class="men"><p>Need an account?<a href="createAccount.html">Sign up</a></p></div>
+        <div class="men"><p><a href="reset.html">Forgot your password?</a></p></div>
+    </form>
+
+    <footer>
+      <div class="vi"><p>Copyright &copy; 2024 | Powered by <strong>BTECH LEVEL 200 GROUP 12</strong></p></div>
+  </footer>
+
+<script src="login.js"></script>
+</body>
+</html>

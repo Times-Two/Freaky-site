@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+    <link rel="stylesheet" href="reset.css">
+</head>
+<body>
+
+    <h1>Reset Password</h1>
+
+    <form id="resetForm">
+        <input type="text" id="name" placeholder="Enter Name" required>
+        <span class="error" id="userNameError"></span>
+
+        <input type="text" id="contact" placeholder="Enter Email or Phone Number" required>
+        <span class="error" id="contactError"></span>
+                    
+        <input type="password" id="password" placeholder="Enter New Password" required minlength="6">
+        <span class="error" id="passwordError"></span>
+                    
+        <input type="password" id="confirmpassword" placeholder="Confirm New Password" required minlength="6">
+        <span class="error" id="confirmPasswordError"></span>
+                    
+        <button type="submit" class="btn">Update Password</button>
+                    
+        <div class="men"><p>Already have an account? <a href="login.html">Sign in</a></p></div>
+    </form>
+
+    <footer>
+      <div class="vi"><p>Copyright &copy; 2025 | Powered by <strong>BTECH LEVEL 200 GROUP 12</strong></p></div>
+    </footer>
+
+    <script>
+        document.getElementById("resetForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            let name = document.getElementById("name").value.trim();
+            let contact = document.getElementById("contact").value.trim();
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmpassword").value;
+
+            let contactError = document.getElementById("contactError");
+            let userNameError = document.getElementById("userNameError");
+            let passwordError = document.getElementById("passwordError");
+            let confirmPasswordError = document.getElementById("confirmPasswordError");
+
+            let valid = true;
+
+            // Clear previous error messages
+            contactError.textContent = "";
+            userNameError.textContent = "";
+            passwordError.textContent = "";
+            confirmPasswordError.textContent = "";
+
+            // Name validation
+            if (name === "") {
+                userNameError.textContent = "Full name cannot be empty.";
+                valid = false;
+            }
+
+            // Contact validation (allow email OR phone number)
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Valid email format
+            let phoneRegex = /^[0-9]{10,}$/; // Phone number (only digits, at least 10 characters)
+
+            if (!emailRegex.test(contact) && !phoneRegex.test(contact)) {
+                contactError.textContent = "Enter a valid email or phone number.";
+                valid = false;
+            }
+
+            // Password validation
+            if (password.length < 6) {
+                passwordError.textContent = "Password must be at least 6 characters long.";
+                valid = false;
+            }
+
+            // Confirm password validation
+            if (password !== confirmPassword) {
+                confirmPasswordError.textContent = "Passwords do not match.";
+                valid = false;
+            }
+
+            // Stop if there are validation errors
+            if (!valid) return;
+
+            // Retrieve users from localStorage
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            let userIndex = users.findIndex(user => user.contact === contact);
+
+            if (userIndex === -1) {
+                alert("Account not found! Please sign up first.");
+                return;
+            }
+
+            // Update password
+            users[userIndex].password = password;
+            localStorage.setItem("users", JSON.stringify(users));
+
+            alert("Password updated successfully! You can now log in.");
+            window.location.href = "login.html";
+        });
+    </script>
+
+</body>
+</html>

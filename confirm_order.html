@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Your Order</title>
+    <link rel="stylesheet" href="confirm_order.css">
+</head>
+<body>
+
+    <h2>Order Confirmation</h2>
+
+    <div id="orderSummary">
+        <h3>Order Details</h3>
+        <ul id="orderList"></ul>
+
+        <p><strong>Total Price:</strong> <span id="totalPrice">₵0.00</span></p>
+
+        <h3>Customer Information</h3>
+        <p><strong>Name:</strong> <span id="customerName">Loading...</span></p>
+        <p><strong>Contact:</strong> <span id="customerContact">Loading...</span></p>
+        <p><strong>Address:</strong> <span id="customerAddress">Loading...</span></p>
+
+        <div id="orderMessage" class="message-box">
+            Your order will be reviewed by our team. You will receive a confirmation 
+            email once your order is approved, Check it out in your profile if approve for payment processing.
+        </div>
+
+        <button id="submitOrder">Submit Order for Review</button>
+        <button id="cancelOrder">Cancel Order</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let customer = JSON.parse(localStorage.getItem("customerDetails"));
+
+            console.log("Cart Data:", cart);
+            console.log("Customer Data:", customer);
+
+            let orderList = document.getElementById("orderList");
+            let totalPrice = 0;
+
+            // Display order items
+            if (cart.length === 0) {
+                orderList.innerHTML = "<p>No items in the cart.</p>";
+            } else {
+                cart.forEach(item => {
+                    console.log("Processing item:", item);
+
+                    if (item.title && item.price && item.image) {
+                        let li = document.createElement("li");
+                        li.innerHTML = `
+                            <img src="${item.image}" alt="${item.title}" class="order-img" width="50">
+                            <p><strong>${item.title}</strong> - ₵${parseFloat(item.price).toFixed(2)}</p>
+                            <p>Quantity: ${item.quantity || 1}</p>
+                        `;
+                        orderList.appendChild(li);
+                        totalPrice += parseFloat(item.price) * (item.quantity || 1);
+                    } else {
+                        console.log("Item missing required properties:", item);
+                    }
+                });
+            }
+
+            document.getElementById("totalPrice").textContent = `₵${totalPrice.toFixed(2)}`;
+
+            if (customer) {
+                document.getElementById("customerName").textContent = customer.name || "Not provided";
+                document.getElementById("customerContact").textContent = customer.contact || "Not provided";
+                document.getElementById("customerAddress").textContent = customer.address || "Not provided";
+            } else {
+                document.getElementById("customerName").textContent = "Not provided";
+                document.getElementById("customerContact").textContent = "Not provided";
+                document.getElementById("customerAddress").textContent = "Not provided";
+            }
+
+            // Function to send order notification to admin for approval
+            function sendOrderForApproval() {
+                if (cart.length === 0) {
+                    alert("No items in cart!");
+                    return false;
+                }
+
+                // Generate unique order ID
+                const orderId = "ORD-" + Date.now();
+                
+                // Create order summary
+                let orderSummary = `New Order: ${orderId}\n\n`;
+                orderSummary += "Order Items:\n";
+                
+                cart.forEach(item => {
+                    orderSummary += `${item.title} - ₵${item.price.toFixed(2)} x ${item.quantity}\n`;
+                });
+                
+                orderSummary += `\nTotal: ₵${totalPrice.toFixed(2)}\n\n`;
+                orderSummary += "Customer Information:\n";
+                orderSummary += `Name: ${customer ? customer.name : "Not provided"}\n`;
+                orderSummary += `Contact: ${customer ? customer.contact : "Not provided"}\n`;
+                orderSummary += `Address: ${customer ? customer.address : "Not provided"}\n`;
+                orderSummary += `Email: ${customer ? customer.email : "Not provided"}\n\n`;
+                orderSummary += "STATUS: AWAITING APPROVAL\n\n";
+                
+    
+                // Store order information
+                const orderData = {
+                    id: orderId,
+                    items: cart,
+                    customer: customer,
+                    total: totalPrice,
+                    date: new Date().toISOString(),
+                    status: "PENDING"
+                };
+                
+                // Save order data to localStorage (in a real system, this would go to a database)
+                let allOrders = JSON.parse(localStorage.getItem("allOrders")) || [];
+                allOrders.push(orderData);
+                localStorage.setItem("allOrders", JSON.stringify(allOrders));
+                localStorage.setItem("currentOrderId", orderId);
+                
+                // Show loading indicator
+                const submitButton = document.getElementById("submitOrder");
+                submitButton.textContent = "Submitting Order...";
+                submitButton.disabled = true;
+                
+                // Create form data for the admin notification email
+                const formData = new FormData();
+                formData.append("subject", `New Order: ${orderId} - Needs Approval`);
+                formData.append("orderDetails", orderSummary);
+                formData.append("orderId", orderId);
+                formData.append("customerName", customer ? customer.name : "Not provided");
+                formData.append("customerContact", customer ? customer.contact : "Not provided");
+                formData.append("orderTotal", totalPrice.toFixed(2));
+                
+                // Replace YOUR_FORMSPREE_ENDPOINT with your actual Formspree endpoint
+                return fetch("https://formspree.io/f/mwplezww", {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        Accept: "application/json",
+                    },
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error("Network response was not ok");
+                })
+                .then(data => {
+                    console.log("Order submitted successfully:", data);
+                    
+                    // Also send confirmation to customer if they provided an email
+                    if (customer && customer.email) {
+                        sendCustomerConfirmation(orderId, customer.email);
+                    } else {
+                        // No customer email, just show success message
+                        showOrderSuccess(orderId);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error submitting order:", error);
+                    alert("Failed to submit your order. Please try again.");
+                    submitButton.textContent = "Submit Order for Review";
+                    submitButton.disabled = false;
+                });
+            }
+            
+            // Function to send confirmation to customer
+            function sendCustomerConfirmation(orderId, customerEmail) {
+                const customerFormData = new FormData();
+                customerFormData.append("subject", `Your Order ${orderId} Has Been Received`);
+                customerFormData.append("email", customerEmail);
+                customerFormData.append("message", `Thank you for your order (#${orderId}). Your order has been received and is awaiting approval. We will notify you once your order is approved and ready for payment processing.`);
+                
+                // Use a different Formspree endpoint for customer emails if needed
+                fetch("https://formspree.io/f/mwplezww", {
+                    method: "POST",
+                    body: customerFormData,
+                    headers: {
+                        Accept: "application/json",
+                    },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Customer confirmation sent:", data);
+                    showOrderSuccess(orderId);
+                })
+                .catch(error => {
+                    console.error("Error sending customer confirmation:", error);
+                    showOrderSuccess(orderId); // Still show success even if customer email fails
+                });
+            }
+            
+            // Function to show order success and redirect
+            function showOrderSuccess(orderId) {
+                alert(`Your order (#${orderId}) has been submitted successfully! It is now awaiting approval.`);
+                
+                // Clear cart since order is now in the system
+                localStorage.removeItem("cart");
+                
+                // Redirect to order success page
+                window.location.href = "profile.html";
+            }
+
+            // Submit order button
+            document.getElementById("submitOrder").addEventListener("click", function(e) {
+                e.preventDefault();
+                sendOrderForApproval();
+            });
+
+            document.getElementById("cancelOrder").addEventListener("click", function () {
+                localStorage.removeItem("cart");
+                localStorage.removeItem("customerDetails");
+                alert("Order canceled!");
+                window.location.href = "index.html";
+            });
+        });
+    </script>
+
+</body>
+</html>

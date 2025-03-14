@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="reset.css">
+</head>
+<body>
+
+    <h1>Create Account</h1>
+
+    <form id="signupForm">
+        <label for="name"></label>
+        <input type="text" id="name" placeholder="Enter Name" required>
+        <span class="error" id="userNameError"></span>
+
+        <label for="contact"></label>
+        <input type="text" id="contact" placeholder="Enter Email or Phone Number" required>
+        <span class="error" id="contactError"></span>
+                    
+        <label for="password"></label>
+        <input type="password" id="password" placeholder="Enter Password" required minlength="6">
+        <span class="error" id="passwordError"></span>
+                    
+        <label for="confirmpassword"></label>
+        <input type="password" id="confirmpassword" placeholder="Confirm Password" required minlength="6">
+        <span class="error" id="confirmPasswordError"></span>
+                    
+        <button type="submit" class="btn">Sign Up</button>
+                    
+        <div class="men"><p>Already have an account? <a href="login.html">Sign in</a></p></div>
+    </form>
+        
+    <footer>
+        <div class="vi"><p>Copyright &copy; 2025 | Powered by <strong>BTECH LEVEL 200 GROUP 12</strong></p></div>
+    </footer>
+
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value.trim();
+            let contact = document.getElementById("contact").value.trim();
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmpassword").value;
+
+            let contactError = document.getElementById("contactError");
+            let userNameError = document.getElementById("userNameError");
+            let passwordError = document.getElementById("passwordError");
+            let confirmPasswordError = document.getElementById("confirmPasswordError");
+
+            let valid = true;
+
+            // Clear previous errors
+            contactError.textContent = "";
+            userNameError.textContent = "";
+            passwordError.textContent = "";
+            confirmPasswordError.textContent = "";
+
+            // Name validation
+            if (name === "") {
+                userNameError.textContent = "Full name cannot be empty.";
+                valid = false;
+            }
+
+            // Contact validation (phone number OR email)
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Checks for valid email
+            let phoneRegex = /^[0-9]{10,}$/; // Checks for valid phone number (10+ digits)
+
+            if (!emailRegex.test(contact) && !phoneRegex.test(contact)) {
+                contactError.textContent = "Enter a valid email or phone number.";
+                valid = false;
+            }
+
+            // Password validation
+            if (password.length < 6) {
+                passwordError.textContent = "Password must be at least 6 characters long.";
+                valid = false;
+            }
+
+            // Confirm password validation
+            if (password !== confirmPassword) {
+                confirmPasswordError.textContent = "Passwords do not match.";
+                valid = false;
+            }
+
+            if (!valid) return;
+
+            // Check if user already exists
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            if (users.find(user => user.contact === contact)) {
+                alert("User already exists!");
+                return;
+            }
+
+            // Save user data
+            users.push({ name, contact, password });
+            localStorage.setItem("users", JSON.stringify(users));
+
+            alert("Signup Successful! You can now login.");
+            window.location.href = "login.html";
+        });
+    </script>
+
+</body>
+</html>

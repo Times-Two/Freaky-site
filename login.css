@@ -1,0 +1,113 @@
+    body {
+       font-family: Arial, sans-serif;
+       margin: 0;
+       padding: 20px;
+       background-color: #f9f9f9;
+    }
+    .ob{
+       text-align: center;    
+    }
+    H1{
+        text-align: center;
+        font-size: 3rem;
+    }
+    
+    form{
+        margin: 50px 400px;
+        border: 2px solid rgb(11, 1, 1);
+        width: 40%;
+        padding: 20px 40px;
+        text-align: center;
+        border-radius: 10px;
+    }
+    input,textarea{
+        width: 90%;
+        margin: 10px 10px;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .mans{
+        display: flex;
+    }
+    .man{
+        padding: 5px;
+        margin: 5px;
+    }
+    .men a{
+        text-decoration: none;
+    }
+    a{color:blue;
+        padding: 10px;
+        font-size: 15px;
+    }
+   
+    .vi{
+        color: rgb(40, 40, 40);
+        text-align: center;
+    }
+    .vi strong{
+        color: black;
+    }
+    .container {
+        max-width: 400px;
+        margin: 50px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .error {
+    color: red;
+    font-size: 14px;
+    }
+    @media screen and (max-width:600px){
+        form{
+            margin: 40px 20px;
+            border: 2px solid rgb(11, 1, 1);
+            width: 68%;
+            padding: 20px 40px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        h1{
+            text-align: center;
+            font-size: 2rem;
+        }
+        .btn {
+            width: 70%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        
+    }
+
+     
+    
+        

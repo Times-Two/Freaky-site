@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Color Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">FTL.COM</div>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="nav-bar">
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="forman.html">For Mens</a></li>
+            <li><a href="forladies.html">For Ladies</a></li>
+            <li><a href="ContactUs.html">Contact us</a></li>
+            <li><a href=""onclick="alert('Logout successfully,'),window.open('indexin.html')">Sign Out</a></li>
+        </ul>
+        </nav>
+    </header>
+   <a href="profile.html"><div class="profile" id="profile"></div> </a>
+
+
+    <div class="home">
+        <p>Welcome TO Freaky Times Luxury</p>
+        <h4>"Hey, Beauty! <br><br>
+           Hello! Welcome toFreaky Times Luxury, your premier destination fro high-quality fabric. Browse our collection today!" <br>
+        "Limited time offer!Freaky Times Luxury, where you can enjoy 10% off your first 5-10 purchase".</h4>
+    </div>
+   
+    <div class="left">
+        <div class="slider">
+            <img src="images/ladies/1 (12).jpg" alt="" class="slide">
+            <img src="images/mens/1 (17).jpg" alt="" class="slide">
+            <img src="images/mens/shoues/1 (38).jpg" alt="" class="slide">
+            <img src="images/ladies/1 (14).jpg" alt="" class="slide">
+            <img src="images/mens/shoues/1 (11).jpg" alt="" class="slide">
+            <img src="images/ladies/1 (8).jpg" alt="" class="slide">
+        </div>
+    </div>
+
+
+    <section>
+        <div class="times">XMAS Deals | 
+           You Can Get Up To 50% Off On Your First 5-10 Purchase On "Freaky Times Luxury"<br>
+        </div>
+    </section>
+
+    <div class="men">
+        <div class="man">
+        Call to Oder: 0539728551
+        </div>
+    </div>
+    <div class="cart-icon" id="cartIcon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <span id="cartCount">0</span>
+    </div>
+        <!-- Cart Container -->
+    <div class="cart-container" id="cartContainer">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <div class="cart-close" id="cartClose">&times;</div>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be added here dynamically -->
+                <div class="empty-cart-message" id="emptyCartMessage">
+                    Your cart is empty
+                </div>
+            </div>
+            <div class="cart-total" id="cartTotal">
+                Total:  0
+            </div>
+            <div class="cart-actions">
+                <button class="btn-continue" id="continueShopping">Continue Shopping</button>
+                <button class="btn-checkout" id="checkout">Checkout</button>
+            </div>
+    </div>
+        
+    
+        <!-- Overlay -->
+        <div class="overlay" id="overlay"></div>
+
+
+    <div class="references">
+        <div class="select-countrys">
+            <a href="forladies.html"><img src="images/ladies/1 (24).jpg" width="200px" height="200px"></a> 
+             <p>Women Skirt Vintage Long dress Casual Half Sleeve Grown Evening Party</p>
+             <div class="price">GH&#x20B5 140.00</div>
+             <button class="buy-now" onclick="addToCart('images/ladies/1 (24).jpg', 'Women Skirt Vintage Long dress Casual Half Sleeve Grown Evening Party', 140.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forladies.html"><img src="images/ladies/1 (10).jpg" width="200px" height="200px"></a> 
+             <p> Women's Double Layered Pendant Necklace </p>
+             <div class="price">GH&#x20B5 36.00</div>
+             <button class="buy-now" onclick="addToCart('images/ladies/1 (36.00).jpg', 'Womens Double Layered Pendant Necklace ', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forladies.html"><img src="images/ladies/1 (11).jpg" width="200px" height="200px"></a> 
+             <p> Women's Sexy Plus Size Nightwear -Black</p>
+             <div class="price">GH&#x20B5 75.00</div>
+             <button class="buy-now" onclick="addToCart('images/ladies/1 (11).jpg', ' Women Sexy Plus Size Nightwear -Black', 75.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forman.html"><img src="images/mens/1 (1).jpg" width="200px" height="200px"></a> 
+             <p> Touphy Men's Short Sleeve T -Shirt</p>
+             <div class="price">GH&#x20B5 80.00</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (1).jpg', 'Touphy Men Short Sleeve T -Shirt', 80.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forman.html"><img src="images/mens/1.jpg" width="200px" height="200px"></a> 
+             <p> Berrykey Stripped Round Neck Summer</p>
+             <div class="price">GH&#x20B5 85.00</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1.jpg', 'Berrykey Stripped Round Neck Summer', 85.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forladies.html"><img src="images/ladies/1 (12).jpg" width="200px" height="200px"></a> 
+             <p> Ladies Panties Set CC - 6 Pieces</p>
+             <div class="price">GH&#x20B5 110.00</div>
+             <button class="buy-now" onclick="addToCart('images/ladies/1 (12).jpg', 'Ladies Panties Set CC - 6 Pieces', 110.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forladies.html"><img src="images/ladies/1 (13).jpg" width="200px" height="200px"></a> 
+             <p> Machislet Women outfit dress</p>
+             <div class="price">GH&#x20B5 100.00</div>
+             <button class="buy-now" onclick="addToCart('images/ladies/1 (13).jpg', 'Machislet Women outfit dress', 100.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forladies.html"><img src="images/ladies/1 (14).jpg" width="200px" height="200px"></a> 
+             <p> 4 Pieces Of Ladies Biker Underwear Set -Multicolour</p>
+             <div class="price">GH&#x20B5 220.00</div>
+             <button class="buy-now" onclick="addToCart('images/ladies/1 (14).jpg', 'Original 4yards Plain Fabric', 220.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forladies.html"><img src="images/ladies/1 (15).jpg" width="200px" height="200px"></a> 
+             <p> Zurich Airport(ZRH), Offers a luxurious first-class with lie-flat beds, Located in Canada</p>
+             <div class="price">GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/ladies/1 (15).jpg', 'Original 4yards Plain Fabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forladies.html"><img src="images/ladies/1 (16).jpg" width="200px" height="200px"></a> 
+             <p> Ladies Nightwear With Bonnet Cap -Multicolour</p>
+             <div class="price">GH&#x20B5 80.00</div>
+             <button class="buy-now" onclick="addToCart('images/ladies/1 (16).jpg', 'Ladies Nightwear With Bonnet Cap -Multicolour', 80.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forladies.html"><img src="images/ladies/1 (17).jpg" width="200px" height="200px"></a> 
+             <p> Fashion Ladies Style Elegant Straight Floral Print V V-Neck Dresses Blue</p>
+             <div class="price">GH&#x20B5 140.00</div>
+             <button class="buy-now" onclick="addToCart('images/ladies/1 (17).jpg', 'Fashion Ladies Style Elegant Straight Floral Print V V-Neck Dresses Blue', 140.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forladies.html"><img src="images/ladies/1 (18).jpg" width="200px" height="200px"></a> 
+             <p> Machislet New Solid Color V-Neck Suit For Summer. Top And Down For Women</p>
+             <div class="price">GH&#x20B5 75.00</div>
+             <button class="buy-now" onclick="addToCart('images/ladies/1 (18).jpg', 'Machislet New Solid Color V-Neck Suit For Summer. Top And Down For Women', 75.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forladies.html"><img src="images/ladies/1 (19).jpg" width="200px" height="200px"></a> 
+             <p>Ladies Grownn Party Dress</p>
+             <div class="price">GH&#x20B5 140.00</div>
+             <button class="buy-now" onclick="addToCart('images/ladies/1 (19).jpg', 'Ladies Grownn Party Dress', 140.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forman.html"><img src="images/mens/1 (47).jpg" width="200px" height="200px"></a> 
+             <p> Zurich Airport(ZRH), Offers a luxurious first-class with lie-flat beds, Located in Canada</p>
+             <div class="price">GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (47).jpg', 'Original 4yards Plain Fabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forman.html"><img src="images/mens/1 (13).jpg" width="200px" height="200px"></a> 
+             <p></p>
+             <div class="price">GH&#x20B5 95.00 - GH&#x20B5 95.00</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (13).jpg', 'Original 4yards Plain Fabric', 95.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forman.html"><img src="images/mens/1 (14).jpg" width="200px" height="200px"></a> 
+             <p> 2 PCS Short Sleeve Men's T-shir-white/Black</p>
+             <div class="price">GH&#x20B5 95.00 - GH&#x20B5 95.00</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (14).jpg', '2 PCS Short Sleeve Men T-shir-white/Black', 95)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forman.html"><img src="images/mens/1 (15).jpg" width="200px" height="200px"></a> 
+             <p>Long Sleeve Plaid Shirt - Black</p>
+             <div class="price">GH&#x20B5 85.00</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (15).jpg', 'Long Sleeve Plaid Shirt - Black', 85.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forman.html"><img src="images/mens/1 (16).jpg" width="200px" height="200px"></a> 
+             <p> Touphy Men's Polo Fashion T- T-shirt Short sleevs</p>
+             <div class="price">GH&#x20B5 75.00</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (16).jpg', ' Touphy Men Polo Fashion T- T-shirt Short sleevs', 75.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forman.html"><img src="images/mens/1 (17).jpg" width="200px" height="200px"></a> 
+             <p> Fashion 2 in 1 Men's Short Sleeve Short Set - Black</p>
+             <div class="price">GH&#x20B5 120.00</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (17).jpg', 'Fashion 2 in 1 Men Short Sleeve Short Set - Black', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forman.html"><img src="images/mens/1 (18).jpg" width="200px" height="200px"></a> 
+             <p> Longss Sleeve Plaid Shirt - Black</p>
+             <div class="price">GH&#x20B5 100.00</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (18).jpg', 'Longss Sleeve Plaid Shirt - Black', 100.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forman.html"><img src="images/mens/1 (19).jpg" width="200px" height="200px"></a> 
+             <p> Fashion 2 in 1 Men's Short Sleeve Short Set - Black</p>
+             <div class="price">GH&#x20B5 120.00</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1 (19).jpg', 'Original 4yards Plain Fabric', 120.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forman.html"><img src="images/mens/shoues/1 (1).jpg" width="200px" height="200px"></a> 
+             <p> Zurich Airport(ZRH), Offers a luxurious first-class with lie-flat beds, Located in Canada</p>
+             <div class="price">GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (1).jpg', 'Original 4yards Plain Fabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forman.html"><img src="images/mens/shoues/1 (10).jpg" width="200px" height="200px"></a> 
+             <p> Zurich Airport(ZRH), Offers a luxurious first-class with lie-flat beds, Located in Canada</p>
+             <div class="price">GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/1.jpg', 'Original 4yards Plain Fabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forman.html"><img src="images/mens/shoues/1 (11).jpg" width="200px" height="200px"></a> 
+             <p> Zurich Airport(ZRH), Offers a luxurious first-class with lie-flat beds, Located in Canada</p>
+             <div class="price">GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (11).jpg', 'Original 4yards Plain Fabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forman.html"><img src="images/mens/shoues/1 (12).jpg" width="200px" height="200px"></a> 
+             <p>Formal Leather Shoes For Business - Black</p>
+             <div class="price">GH&#x20B5 120.00</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (12).jpg', 'Formal Leather Shoes For Business - Black', 120.00)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forman.html"><img src="images/mens/shoues/1 (13).jpg" width="200px" height="200px"></a> 
+             <p> Zurich Airport(ZRH), Offers a luxurious first-class with lie-flat beds, Located in Canada</p>
+             <div class="price">GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (13).jpg', 'Original 4yards Plain Fabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forman.html"><img src="images/mens/shoues/1 (14).jpg" width="200px" height="200px"></a> 
+             <p> Zurich Airport(ZRH), Offers a luxurious first-class with lie-flat beds, Located in Canada</p>
+             <div class="price">GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (14).jpg', 'Original 4yards Plain Fabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forman.html"><img src="images/mens/shoues/1 (15).jpg" width="200px" height="200px"></a> 
+             <p> Zurich Airport(ZRH), Offers a luxurious first-class with lie-flat beds, Located in Canada</p>
+             <div class="price">GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (15).jpg', 'Original 4yards Plain Fabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forman.html"><img src="images/mens/shoues/1 (16).jpg" width="200px" height="200px"></a> 
+             <p> Zurich Airport(ZRH), Offers a luxurious first-class with lie-flat beds, Located in Canada</p>
+             <div class="price">GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (16).jpg', 'Original 4yards Plain Fabric', 10)">Add to Cart</button>
+         </div>
+        <div class="select-countrys">
+            <a href="forman.html"><img src="images/mens/shoues/1 (17).jpg" width="200px" height="200px"></a> 
+             <p> Zurich Airport(ZRH), Offers a luxurious first-class with lie-flat beds, Located in Canada</p>
+             <div class="price">GH&#x20B5 10</div>
+             <button class="buy-now" onclick="addToCart('images/mens/shoues/1 (17).jpg', 'Original 4yards Plain Fabric', 10)">Add to Cart</button>
+         </div>
+    </div>
+
+    <footer>
+        <div class="x">
+          <div class="I">
+            <p><strong>FREAKYTIMES</strong>LUXURY</p>
+          </div>
+
+          <div class="ii">
+            <p><strong>company</strong></p><br>
+            <p>Blog</p><br>
+            <p>Privacy Policy</p><br>
+            <p>FAQ'S</p><br>
+            <p><a href="ContactUs.html">Contact Us</a></p>
+          </div>
+
+          <div class="iii">
+             <p><strong>Contact Us</strong></p><br> 
+             <p>twotimes678@gmail.com</p><br>
+             <p>Takoradi, Axim "GHANA"</p><br>
+             <p><a href="https://wa.me/+233530728551?text">Call or WhatsApp</a></p>
+          </div>
+
+          <div class="iv">
+            <p><strong>Quick Link</strong></p><br>
+            <p><a href="index.html">Home</a></p><br>
+            <p><a href="forman.html">For Mens</a></p><br>
+            <p><a href="forladies.html">For Ladies</a></p><br>
+            <p><a href="ContactUs.html">Contact Us</a></p>
+          </div>
+
+          <div class="vv">
+            <p><strong>Social Share</strong></p><br>
+            <p><a href="https://wa.me/+233530728551?text">WhatsApp</a></p><br>
+            <p>Facebook</p><br>
+            <p>Instagram</p><br>
+            <p>LinkedIn</p>
+          </div>
+        </div>
+
+        <div class="vi"><p>Copyright &copy; 2024 | Powered by <strong>TIMES TWO</strong></p></div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script src="addtocart.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+*,html{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body{
+    background-color: #f5f5f5;
+    overflow-x: hidden;
+}
+header{
+    width: 100%;
+    height: 80px;
+    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 16px 8px -9px rgba(191,191,191);
+}
+.logo{
+    font-size: 28px;
+    font-weight: 600px;
+    color: #0b2447;
+    padding: 10px 40px;
+}
+.hamburger{
+    display: none;
+}
+.nav-bar ul{
+    display: flex;
+    list-style-type: none;
+}
+.nav-bar ul li a{
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 0 40px;
+    transition: .2s;
+}
+.nav-bar ul li a::after{
+    display: block;
+    content: '';
+    border-bottom: 2px solid #fff;
+    transform: scale(0);
+    transition: transform 250ms ease-in-out;
+}
+.nav-bar ul li a:hover::after{
+    transform: scale(1);
+}
+
+.logo{
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+span{
+    color: green;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+.active{
+    color: orange;
+    font-weight: bold;
+}
+.references{
+   
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px 20px;
+    flex-wrap: wrap;
+    padding: 20px 20px;
+}
+.mary{
+    color: rgb(8, 222, 8);
+}
+.time{
+    border-radius: 10px;
+    border: 2px solid rgb(11, 1, 1);
+    width: 270px;
+    text-align: center;
+    padding: 20px 20px;
+    margin-top: 30px;
+    background-color: white;
+}
+.time p{
+    color: black;
+}
+section{
+    border-radius: 10px;
+    background-color:orange;
+    text-align: center;
+    padding: 5px;
+
+}
+
+@media screen and (max-width:600px){
+    .hamburger{
+        display : block;
+        cursor: pointer;
+    }
+    .hamburger .line{
+        width: 28px;
+        height: 3px;
+        background-color: #fff;
+        margin: 6px 30px;
+    }
+    .nav-bar{
+        height: 0px;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background-color: green;
+        transition: .5s;
+        overflow: hidden;
+    }
+    .nav-bar ul{
+        display: block;
+        width: fit-content;
+        text-align: center;
+        margin: 80px auto 0 auto;
+        transition: .5s;
+        opacity: 0;
+    }
+    .nav-bar.active{
+        height: 350px;
+    }
+    .nav-bar ul{
+        opacity: 1;
+    }
+    .nav-bar ul li a{
+        margin-bottom: 12px;
+    }
+    .times{
+        font-size: 20px;
+        padding: 15px;
+    }
+    .time{
+        border-radius: 10px;
+        border: 2px solid rgb(11, 1, 1);
+        width: 150px;
+        text-align: center;
+        padding: 10px 10px;
+        margin-top: 20px;
+        background-color: white;
+    }
+    .time img{
+        height: 130px;
+        width: 120px;
+    }
+    .references{
+        padding: 0;
+        margin: 0;
+    }
+}
