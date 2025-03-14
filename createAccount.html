@@ -37,71 +37,76 @@
     </footer>
 
     <script>
-        document.getElementById("signupForm").addEventListener("submit", function(event) {
-            event.preventDefault();
+      document.getElementById("signupForm").addEventListener("submit", function (event) {
+    event.preventDefault();
 
-            let name = document.getElementById("name").value.trim();
-            let contact = document.getElementById("contact").value.trim();
-            let password = document.getElementById("password").value;
-            let confirmPassword = document.getElementById("confirmpassword").value;
+    let name = document.getElementById("name").value.trim();
+    let contact = document.getElementById("contact").value.trim();
+    let password = document.getElementById("password").value;
+    let confirmPassword = document.getElementById("confirmpassword").value;
 
-            let contactError = document.getElementById("contactError");
-            let userNameError = document.getElementById("userNameError");
-            let passwordError = document.getElementById("passwordError");
-            let confirmPasswordError = document.getElementById("confirmPasswordError");
+    let contactError = document.getElementById("contactError");
+    let userNameError = document.getElementById("userNameError");
+    let passwordError = document.getElementById("passwordError");
+    let confirmPasswordError = document.getElementById("confirmPasswordError");
 
-            let valid = true;
+    let valid = true;
 
-            // Clear previous errors
-            contactError.textContent = "";
-            userNameError.textContent = "";
-            passwordError.textContent = "";
-            confirmPasswordError.textContent = "";
+    // Clear previous errors
+    contactError.textContent = "";
+    userNameError.textContent = "";
+    passwordError.textContent = "";
+    confirmPasswordError.textContent = "";
 
-            // Name validation
-            if (name === "") {
-                userNameError.textContent = "Full name cannot be empty.";
-                valid = false;
-            }
+    // Name validation
+    if (name === "") {
+        userNameError.textContent = "Full name cannot be empty.";
+        valid = false;
+    }
 
-            // Contact validation (phone number OR email)
-            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Checks for valid email
-            let phoneRegex = /^[0-9]{10,}$/; // Checks for valid phone number (10+ digits)
+    // Contact validation (phone number OR email)
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Email check
+    let phoneRegex = /^[0-9]{10,}$/; // Phone number check (10+ digits)
 
-            if (!emailRegex.test(contact) && !phoneRegex.test(contact)) {
-                contactError.textContent = "Enter a valid email or phone number.";
-                valid = false;
-            }
+    if (!emailRegex.test(contact) && !phoneRegex.test(contact)) {
+        contactError.textContent = "Enter a valid email or phone number.";
+        valid = false;
+    }
 
-            // Password validation
-            if (password.length < 6) {
-                passwordError.textContent = "Password must be at least 6 characters long.";
-                valid = false;
-            }
+    // Password validation
+    if (password.length < 6) {
+        passwordError.textContent = "Password must be at least 6 characters long.";
+        valid = false;
+    }
 
-            // Confirm password validation
-            if (password !== confirmPassword) {
-                confirmPasswordError.textContent = "Passwords do not match.";
-                valid = false;
-            }
+    // Confirm password validation
+    if (password !== confirmPassword) {
+        confirmPasswordError.textContent = "Passwords do not match.";
+        valid = false;
+    }
 
-            if (!valid) return;
+    if (!valid) return;
 
-            // Check if user already exists
-            let users = JSON.parse(localStorage.getItem("users")) || [];
+    // Check if user already exists
+    let users = JSON.parse(localStorage.getItem("users")) || [];
 
-            if (users.find(user => user.contact === contact)) {
-                alert("User already exists!");
-                return;
-            }
+    if (users.find(user => user.contact === contact)) {
+        alert("User already exists!");
+        return;
+    }
 
-            // Save user data
-            users.push({ name, contact, password });
-            localStorage.setItem("users", JSON.stringify(users));
+    // Save user data
+    let newUser = { name, contact, password };
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
 
-            alert("Signup Successful! You can now login.");
-            window.location.href = "login.html";
-        });
+    // ✅ Store user name separately for initials display
+    localStorage.setItem("userName", name);
+
+    alert("Signup Successful! You can now login.");
+    window.location.href = "login.html";
+});
+
     </script>
 
 </body>

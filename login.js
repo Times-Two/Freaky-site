@@ -34,7 +34,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     if (user) {
         localStorage.setItem("loggedInUser", JSON.stringify(user));
         alert("Login successful!");
-        window.location.href = 'index.html';
+        window.location.href = 'indexin.html';
     } else {
         alert("Invalid email/phone number or password!");
     }
